@@ -2,10 +2,16 @@ const express = require('express');
 const app = express();
 const quizRoutes = require('./routes/quiz.routes');
 const errorHandler = require('./middleware/error.middleware');
+const cors = require('cors');
 
+
+app.use(cors({
+  origin: 'https://quizapp-gamma-khaki.vercel.app'
+}));
 
 app.use(express .json());
 app.use(express.urlencoded({ extended: true }));
+
 
 
 app.get('/', (req, res) => {
